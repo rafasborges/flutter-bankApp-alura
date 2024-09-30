@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 
-@GenerateNiceMocks([MockSpec<BankHttp>()])
 class BankHttp {
   Future<String> dolarToReal() async {
     var url = Uri.http('economia.awesomeapi.com.br', '/last/USD-BRL');
