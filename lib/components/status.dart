@@ -3,7 +3,7 @@ import 'package:estilizacao_componentes/themes/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class AccountStatus extends StatefulWidget {
-  const AccountStatus({Key? key}) : super(key: key);
+  const AccountStatus({super.key});
 
   @override
   State<AccountStatus> createState() => _AccountStatusState();
@@ -86,7 +86,8 @@ class _AccountStatusState extends State<AccountStatus> {
           ),
           const Padding(
             padding: EdgeInsets.only(top: 16.0, bottom: 8.0),
-            child: Text('Spending Limit: \$1000.00'), // desafio pode ser criar a função que limita deposito e transação baseado nesse limite. E TESTAR
+            child: Text(
+                'Spending Limit: \$1000.00'), // desafio pode ser criar a função que limita deposito e transação baseado nesse limite. E TESTAR
           ),
           Row(
             children: <Widget>[
@@ -96,7 +97,7 @@ class _AccountStatusState extends State<AccountStatus> {
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(5)),
                   child: LinearProgressIndicator(
-                    value: BankInherited.of(context).values.spent/1000,
+                    value: BankInherited.of(context).values.spent / 1000,
                     semanticsLabel: 'Current points',
                     minHeight: 8,
                   ),
@@ -125,9 +126,12 @@ class _AccountStatusState extends State<AccountStatus> {
       ),
     );
   }
-  double spentAndEarned(){
-    double result = (BankInherited.of(context).values.spent/BankInherited.of(context).values.earned)*100;
-    if(result.isNaN) {
+
+  double spentAndEarned() {
+    double result = (BankInherited.of(context).values.spent /
+            BankInherited.of(context).values.earned) *
+        100;
+    if (result.isNaN) {
       return 0;
     }
     return result;
